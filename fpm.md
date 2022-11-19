@@ -1,7 +1,7 @@
 # FPM[^1]
 
-- [deb](https://github.com/mbHAW/ProjektC/blob/doc/deb.md)
-- [systemd](https://github.com/mbHAW/ProjektC/blob/doc/systemd.md)
+- [deb](https://github.com/Tornado3P9/ProjektC/blob/doc/deb.md)
+- [systemd](https://github.com/Tornado3P9/ProjektC/blob/doc/systemd.md)
 
 Das Programm "FPM" reduziert den Arbeitsaufwand für die Erstellung von Installationspaketen enorm, da man sich nur noch auf den Inhalt konzentrieren muss und nicht auf Unterschiede und Eigenheiten zwischen Betriebssystemen.
 FPM wird inzwischen von vielen Entwicklerstudios verwendet. Z.B. von InfluxData für die Kompilierung von [Telegraf](https://github.com/influxdata/telegraf/blob/577c0462b8a0c0f98e822672091d9cf6916427d9/Makefile) in unterschiedliche Formate gleichzeitig.

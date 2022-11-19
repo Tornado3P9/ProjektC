@@ -1,8 +1,8 @@
 # AWS CodeBuild
-- [fpm](https://github.com/mbHAW/ProjektC/blob/doc/fpm.md)
-- [awscli](https://github.com/mbHAW/ProjektC/blob/doc/awscli.md)
-- [terraform](https://github.com/mbHAW/ProjektC/blob/doc/terraform.md)
-- [buildspec.yml](https://github.com/mbHAW/ProjektC/blob/doc/buildspec.md)
+- [fpm](https://github.com/Tornado3P9/ProjektC/blob/doc/fpm.md)
+- [awscli](https://github.com/Tornado3P9/ProjektC/blob/doc/awscli.md)
+- [terraform](https://github.com/Tornado3P9/ProjektC/blob/doc/terraform.md)
+- [buildspec.yml](https://github.com/Tornado3P9/ProjektC/blob/doc/buildspec.md)
 
 ## Was ist AWS CodeBuild?
 Die [Homepage](https://docs.aws.amazon.com/de_de/codebuild/latest/userguide/welcome.html) hat dazu Folgendes zu sagen:
@@ -33,7 +33,7 @@ In diesem Fall bedienen wir uns der Hilfe von Terraform für das AWS-Projekt und
 Es ist vorteilhaft, dass man den Prozess, den man später nach AWS verschieben möchte, vorher schon einmal auf dem eigenen Rechner auf Funktionalität testen kann.
 So lassen sich rechtzeitig Bugs diagnostizieren, bevor der Buildprozess auf Amazon [Geld kostet](https://aws.amazon.com/codebuild/pricing/) und man erst danach merkt, dass etwas noch nicht funktioniert.
 Das Einzige, was Codebuild dafür benötigt, ist lediglich der Projektordner mit den Source-Dateien und eine Konfigurationsdatei mit der Bezeichnung "buildspec.yml", welche "CodeBuild" den Arbeitsablauf mitteilt.
-Das Projekt für den lokalen Build-Test ist zu finden im Branch [lokal](https://github.com/mbHAW/ProjektC/tree/lokal).
+Das Projekt für den lokalen Build-Test ist zu finden im Branch [lokal](https://github.com/Tornado3P9/ProjektC/tree/lokal).
 
 
 ## buildspec.yml
@@ -82,7 +82,7 @@ artifacts:
 Die Konfigurationsdatei buildspec.yml ist eine sog. YAML-Datei was bedeutet, dass ganz besonders auf die richtige Einrückung geachtet werden muss.
 Optimalerweise verwendet man für diesen Zweck einfach einen der online verfügbaren [YAML Validatoren](https://codebeautify.org/yaml-validator/).
 
-Für weitere Beispiele, gehe zu [buildspec.yml](https://github.com/mbHAW/ProjektC/blob/doc/buildspec.md).  
+Für weitere Beispiele, gehe zu [buildspec.yml](https://github.com/Tornado3P9/ProjektC/blob/doc/buildspec.md).  
 Benutzt man Codebuild lokal zusammen mit dem Docker-Container, dann erstellt dieser nach jedem Build-Job eine Zipdatei, in die er alle Programmdateien tut.
 Will man lokal gerne das Endprodukt in einzelne Dateien getrennt erhalten, so bietet es sich an, dass man [secondary-artifacts](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-multi-in-out.html) definiert. Diese werden standardmäßig zwar ebenfalls gezippt, aber dafür befinden sich nicht alle Endprodukte in einer großen Zipdatei, was bei großen Dateien unter Umständen von Vorteil ist.
 
@@ -393,7 +393,7 @@ Gehe zur Webseite https://console.aws.amazon.com/
 **Auf dem AWS-Server müssen ein paar Voreinstellungen getroffen worden sein:**  
 - Der AWS-Account muss erstellt worden sein und auch ein *"IAM Benutzer"* mit vorzugsweise beschränkten Rechten angelegt worden sein. Gib dafür *"iam"* in die AWS-Suchzeile ein und wähle "Identity and Access Management (IAM)" aus. Unter dem Reiter *"Users"* kann man einen neuen Benutzer anlegen. Danach logt man sich mit dem neuen Benutzer (oder mit dem alten Administrator-Benutzer) auf der Webkonsole erneut ein und gelangt dann über einen Mausklick auf den Benutzernamen (rechts oben) zu dem Menüpunkt *"Security credentials"*. Dort einmal draufgeklickt, öffnet sich die Seite *"My security credentials"*, auf der sich neue *"access keys"* für die Verwendung von AWS-CLI und Terraform erstellen lassen.
     ![accesskey.png](pics/accesskey.png)
-Das Profil wird anschließend auf dem PC des Benutzers mit Hilfe des [AWS-Clienten](https://github.com/mbHAW/ProjektC/blob/doc/awscli.md) angelegt, damit der Benutzer diese Daten nicht jedes Mal erneut angeben muss.
+Das Profil wird anschließend auf dem PC des Benutzers mit Hilfe des [AWS-Clienten](https://github.com/Tornado3P9/ProjektC/blob/doc/awscli.md) angelegt, damit der Benutzer diese Daten nicht jedes Mal erneut angeben muss.
 Terraform benutzt dann das angelegte Profil um sich auf AWS zu verifizieren. (Siehe main.tf)
 
 - Ein S3-Bucket mit dem Namen *"projektc-dev-terraform-state"* für das State-File *"terraform.tfstate"* muss erstellt werden. (Siehe main.tf)
@@ -418,7 +418,7 @@ Ist das Projekt initialisiert, können wir den aktuellen Projektstand jetzt auf 
 terraform apply
 ```
 Der Befehl ist dabei zum Glück recht ungefährlich, da alle neuen Veränderungen, die durch die Terraform-Dateien bewirkt werden sollen, zuerst in der Konsole angezeigt werden und eine Bestätigung durch den Benutzer erwartet wird,
-bevor tatsächlich etwas zum Server gesendet wird. Für weitere Terraform-Befehle siehe [hier](https://github.com/mbHAW/ProjektC/blob/doc/terraform.md).
+bevor tatsächlich etwas zum Server gesendet wird. Für weitere Terraform-Befehle siehe [hier](https://github.com/Tornado3P9/ProjektC/blob/doc/terraform.md).
 Wurde kein Remote-S3-Container für die Speicherung der Datei *"terraform.tfstate"* angegeben, so wird diese lokal im Ordner *"terraform-build"* erstellt.
 Dabei ist zu beachten, dass man das State-File möglichst niemals auf Github mitveröffentlicht, da diese Datei sensible Daten enthält. Am einfachsten ist es da, eine *".gitignore"*-Datei im Projektordner anzulegen,
 die die Zeile `.terraform` enthält (s.o.). Damit wird dieser Ordner von Git ignoriert.

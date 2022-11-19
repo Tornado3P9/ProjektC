@@ -22,7 +22,7 @@
 	```
 2. Projektordner herunterladen
 	```bash
-	git clone https://github.com/mbHAW/ProjektC.git
+	git clone https://github.com/Tornado3P9/ProjektC.git
 	```
 3. Zum branch 'lokal' wechseln
 	```bash
